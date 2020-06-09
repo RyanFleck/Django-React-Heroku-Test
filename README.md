@@ -10,5 +10,6 @@ This app implements a simple voting system, **Electoral**, backend in Django.
 
 1. [Primary
    tutorial](https://librenepal.com/article/django-and-create-react-app-together-on-heroku/)
+1. [Axios with React](https://alligator.io/react/axios-react/)
 1. [Authentication with
    Google](https://medium.com/trabe/oauth-authentication-in-django-with-social-auth-c67a002479c1)
