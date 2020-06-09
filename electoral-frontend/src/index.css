@@ -26,3 +26,13 @@ code {
   min-height: 70vh;
   background: white;
 }
+
+#links a {
+  color: gray;
+  text-decoration: none;
+}
+
+#links {
+  font-size: 0.7rem;
+  color: gray;
+}

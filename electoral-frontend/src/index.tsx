@@ -32,7 +32,9 @@ class App extends React.Component<Props, State> {
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
         <Links>
           <RepoLink />
+          {" · "}
           <PrivacyPolicy />
+          {" · "}
           <TermsOfService />
         </Links>
       </div>
@@ -53,15 +55,15 @@ const RepoLink: React.FunctionComponent = () => {
 };
 
 const PrivacyPolicy: React.FunctionComponent = () => {
-  return <a href="/privacy-policy/">Privacy</a>;
+  return <a href="/privacy-policy/">Privacy Policy</a>;
 };
 
 const TermsOfService: React.FunctionComponent = () => {
-  return <a href="/terms-of-service/">ToS</a>;
+  return <a href="/terms-of-service/">Terms of Service</a>;
 };
 
 const Links: React.FunctionComponent = (props) => {
-  return <div>{props.children}</div>;
+  return <div id={"links"}>{props.children}</div>;
 };
 
 ReactDOM.render(
