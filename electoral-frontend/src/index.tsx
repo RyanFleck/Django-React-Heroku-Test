@@ -5,6 +5,9 @@ import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./pages/login";
+import Home from "./pages/home";
+import Create from "./pages/create";
+import Vote from "./pages/vote";
 
 const page_header = "Electoral";
 
@@ -46,13 +49,13 @@ class App extends React.Component<Props, State> {
               <Login />
             </Route>
             <Route path="/create">
-              <h2>Create</h2>
+              <Create />
             </Route>
             <Route path="/vote">
-              <h2>Vote</h2>
+              <Vote />
             </Route>
             <Route path="/">
-              <h2>Home</h2>
+              <Home />
             </Route>
           </Switch>
         </Router>
