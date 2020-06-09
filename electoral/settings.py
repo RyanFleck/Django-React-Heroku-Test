@@ -38,15 +38,17 @@ ALLOWED_HOSTS = ['*']
 
 if 'DYNO' in os.environ:
     SECURE_SSL_REDIRECT = True
+    CSRF_COOKIE_SECURE = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+'''
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
     'http://localhost:3000',
     'https://rcf-electoral.herokuapp.com',
 )
-
+'''
 
 # Application definition
 
