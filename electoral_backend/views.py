@@ -5,6 +5,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
 from django.conf import settings
 from electoral_backend.models import Record
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 terms_of_service = "Terms of Service\n\n\tBy using this web application you agree to have all data entered on this page used and stored by the Electoral system."
 privacy_policy = "Privacy Policy\n\n\tThe developer of this application may look at the database to troubleshoot and be able to view emails and your submitted results."
@@ -18,6 +19,7 @@ class FrontendAppView(View):
     index_file_path = os.path.join(
         settings.REACT_APP_DIR, 'build', 'index.html')
 
+    @ensure_csrf_cookie
     def get(self, request):
         try:
             with open(self.index_file_path) as f:
