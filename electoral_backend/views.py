@@ -35,5 +35,7 @@ class TestDataView(View):
     """
 
     def get(self, request):
-        json = {'it_works': True}
+
+        json = {'it_works': True,
+                'sent_from': "DJANGO!"}
         return JsonResponse(json)

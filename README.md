@@ -4,6 +4,17 @@ Test deployment - Django with React on Heroku.
 
 This app implements a simple voting system, **Electoral**, backend in Django.
 
+To develop, run in separate terminal windows:
+
+```
+# Window 0
+python manage.py runserver
+
+# Window 1
+cd electoral-frontend
+yarn start
+```
+
 <br />
 
 **Resources:**

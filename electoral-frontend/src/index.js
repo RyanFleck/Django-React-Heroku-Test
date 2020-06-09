@@ -30,6 +30,8 @@ class App extends React.Component {
             ? "present"
             : "not present"}
         </p>
+        <br />
+        <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
       </div>
     );
   }
