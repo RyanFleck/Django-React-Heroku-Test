@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from "./pages/login";
 
-const page_header = "Django + React + TypeScript";
+const page_header = "Electoral";
 
 interface Props {}
 
@@ -29,6 +31,32 @@ class App extends React.Component<Props, State> {
     return (
       <div id="app-wrap">
         <h1>{page_header}</h1>
+
+        <Router>
+          <Link to="/">Home</Link>
+          {" · "}
+          <Link to="/login">Login</Link>
+          {" · "}
+          <Link to="/create">Create</Link>
+          {" · "}
+          <Link to="/vote">Vote</Link>
+
+          <Switch>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/create">
+              <h2>Create</h2>
+            </Route>
+            <Route path="/vote">
+              <h2>Vote</h2>
+            </Route>
+            <Route path="/">
+              <h2>Home</h2>
+            </Route>
+          </Switch>
+        </Router>
+
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
         <Links>
           <RepoLink />
