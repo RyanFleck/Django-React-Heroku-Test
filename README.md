@@ -1,8 +1,9 @@
 # Django-React-Heroku-Test
 
-Test deployment - Django with React on Heroku.
+This implements the **"Electoral"** voting application, which when finished will
+use Django and Postgres for the backend, and React with Typescript for the frontend.
 
-This app implements a simple voting system, **Electoral**, backend in Django.
+Live demo running here: <https://rcf-electoral.herokuapp.com/>
 
 **Done:**
 
@@ -11,10 +12,10 @@ This app implements a simple voting system, **Electoral**, backend in Django.
 1. Get data from Django in React with Axios
 1. Set up Postgres database in Django
 1. Create test model and ensure database works
+1. Convert React app to Typescript
 
 **ToDo:**
 
-1. Convert React app to Typescript
 1. Add Google OAuth for gapps-domain authentication
 
 ## Development
