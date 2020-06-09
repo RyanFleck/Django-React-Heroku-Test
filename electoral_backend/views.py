@@ -53,6 +53,11 @@ class TestDataView(View):
         return JsonResponse(json)
 
 
+class Authenticate(View):
+    def post(self, request):
+        return JsonResponse({'backend_up': True})
+
+
 class TermsOfService(View):
     def get(self, request):
         return HttpResponse(terms_of_service, content_type="text/plain")

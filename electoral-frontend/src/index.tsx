@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Cookies from "js-cookie";
 import Login from "./pages/login";
 import Home from "./pages/home";
 import Create from "./pages/create";
 import Vote from "./pages/vote";
+import axios from "axios";
 
 const page_header = "Electoral";
 
@@ -23,9 +24,8 @@ class App extends React.Component<Props, State> {
   };
 
   componentDidMount() {
+    // See if backend is up and responsive.
     axios.get("api/testdata/").then((res) => {
-      console.log("got testdata:");
-      console.log(res.data);
       this.setState({ data: res.data });
     });
   }
