@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Cookies from "js-cookie";
 import Login from "./pages/login";
 import Home from "./pages/home";
 import Create from "./pages/create";
