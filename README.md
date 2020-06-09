@@ -4,6 +4,12 @@ Test deployment - Django with React on Heroku.
 
 This app implements a simple voting system, **Electoral**, backend in Django.
 
+Before development, add a `.env` file with the following contents:
+
+```
+DATABASE_URL=postgres:// (insert heroku postgres URL)
+```
+
 To develop, run in separate terminal windows:
 
 ```
