@@ -1,8 +1,10 @@
 import os
+import datetime
 import logging
 from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
 from django.conf import settings
+from electoral_backend.models import Record
 
 
 class FrontendAppView(View):
@@ -36,6 +38,12 @@ class TestDataView(View):
 
     def get(self, request):
 
+        b = Record(
+            content=f'Test record creation at {datetime.datetime.now()}.')
+        b.save()
+
+        record_num = Record.objects.count()
         json = {'it_works': True,
-                'sent_from': "DJANGO!"}
+                'sent_from': "DJANGO!",
+                'records': record_num}
         return JsonResponse(json)
