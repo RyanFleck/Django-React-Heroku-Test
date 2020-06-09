@@ -36,6 +36,7 @@ class App extends React.Component {
         <br />
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href="https://github.com/RyanFleck/Django-React-Heroku-Test"
         >
           Source code
