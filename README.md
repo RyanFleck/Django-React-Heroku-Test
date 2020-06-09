@@ -14,10 +14,10 @@ Live demo running here: <https://rcf-electoral.herokuapp.com/>
 1. Create test model and ensure database works
 1. Convert React app to Typescript
 1. Add react-router
+1. POST data to backend from frontend, on prod & dev.
 
 **ToDo:**
 
-1. POST data to backend from frontend
 1. Add Google OAuth for gapps-domain authentication
 
 ## Development
