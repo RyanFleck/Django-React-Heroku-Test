@@ -32,6 +32,14 @@ class App extends React.Component {
         </p>
         <br />
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+        <br />
+        <br />
+        <a
+          target="_blank"
+          href="https://github.com/RyanFleck/Django-React-Heroku-Test"
+        >
+          Source code
+        </a>
       </div>
     );
   }

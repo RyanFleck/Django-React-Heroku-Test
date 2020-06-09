@@ -4,6 +4,21 @@ Test deployment - Django with React on Heroku.
 
 This app implements a simple voting system, **Electoral**, backend in Django.
 
+**Done:**
+
+1. Set up Django app
+1. Set up React app
+1. Get data from Django in React with Axios
+1. Set up Postgres database in Django
+1. Create test model and ensure database works
+
+**ToDo:**
+
+1. Convert React app to Typescript
+1. Add Google OAuth for gapps-domain authentication
+
+## Development
+
 Before development, add a `.env` file with the following contents:
 
 ```
@@ -21,9 +36,7 @@ cd electoral-frontend
 yarn start
 ```
 
-<br />
-
-**Resources:**
+## Resources
 
 1. [Primary
    tutorial](https://librenepal.com/article/django-and-create-react-app-together-on-heroku/)

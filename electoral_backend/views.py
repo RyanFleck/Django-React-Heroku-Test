@@ -38,9 +38,10 @@ class TestDataView(View):
 
     def get(self, request):
 
-        b = Record(
-            content=f'Test record creation at {datetime.datetime.now()}.')
-        b.save()
+        # Add a record with every access.
+        # b = Record(
+        #    content=f'Test record creation at {datetime.datetime.now()}.')
+        # b.save()
 
         record_num = Record.objects.count()
         json = {'it_works': True,
