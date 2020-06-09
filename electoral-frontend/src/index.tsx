@@ -30,7 +30,11 @@ class App extends React.Component<Props, State> {
       <div id="app-wrap">
         <h1>{page_header}</h1>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
-        <RepoLink />
+        <Links>
+          <RepoLink />
+          <PrivacyPolicy />
+          <TermsOfService />
+        </Links>
       </div>
     );
   }
@@ -46,6 +50,18 @@ const RepoLink: React.FunctionComponent = () => {
       Source code
     </a>
   );
+};
+
+const PrivacyPolicy: React.FunctionComponent = () => {
+  return <a href="/privacy-policy/">Privacy</a>;
+};
+
+const TermsOfService: React.FunctionComponent = () => {
+  return <a href="/terms-of-service/">ToS</a>;
+};
+
+const Links: React.FunctionComponent = (props) => {
+  return <div>{props.children}</div>;
 };
 
 ReactDOM.render(

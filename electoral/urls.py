@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from electoral_backend.views import FrontendAppView, TestDataView
+from electoral_backend.views import FrontendAppView, TestDataView, PrivacyPolicy, TermsOfService
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/testdata/', TestDataView.as_view()),
+    path('privacy-policy/', PrivacyPolicy.as_view()),
+    path('terms-of-service/', TermsOfService.as_view()),
     re_path(r'^', FrontendAppView.as_view()),
 ]

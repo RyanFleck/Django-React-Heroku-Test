@@ -6,6 +6,9 @@ from django.views.generic import View
 from django.conf import settings
 from electoral_backend.models import Record
 
+terms_of_service = "Terms of Service\n\n\tBy using this web application you agree to have all data entered on this page used and stored by the Electoral system."
+privacy_policy = "Privacy Policy\n\n\tThe developer of this application may look at the database to troubleshoot and be able to view emails and your submitted results."
+
 
 class FrontendAppView(View):
     """
@@ -48,3 +51,13 @@ class TestDataView(View):
                 'sent_from': "DJANGO!",
                 'records': record_num}
         return JsonResponse(json)
+
+
+class TermsOfService(View):
+    def get(self, request):
+        return HttpResponse(terms_of_service, content_type="text/plain")
+
+
+class PrivacyPolicy(View):
+    def get(self, request):
+        return HttpResponse(privacy_policy, content_type="text/plain")
