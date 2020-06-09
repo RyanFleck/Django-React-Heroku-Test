@@ -1,0 +1,15 @@
+{
+  "name": "electoral",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "Ryan Fleck",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "heroku-prebuild": "NODE_ENV=production cd electoral-frontend/ && yarn install && yarn build && cd .."
+  },
+  "cacheDirectories": [
+    "electoral-frontend/node_modules"
+  ]
+}
