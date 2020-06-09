@@ -30,10 +30,23 @@ class App extends React.Component<Props, State> {
       <div id="app-wrap">
         <h1>{page_header}</h1>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+        <RepoLink />
       </div>
     );
   }
 }
+
+const RepoLink: React.FunctionComponent = () => {
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/RyanFleck/Django-React-Heroku-Test"
+    >
+      Source code
+    </a>
+  );
+};
 
 ReactDOM.render(
   <React.StrictMode>
