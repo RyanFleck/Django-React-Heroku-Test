@@ -1,6 +1,6 @@
 import os
 import logging
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.generic import View
 from django.conf import settings
 
@@ -27,3 +27,13 @@ class FrontendAppView(View):
                 """,
                 status=501,
             )
+
+
+class TestDataView(View):
+    """
+    Prove I can use Axios to fetch JSON.
+    """
+
+    def get(self, request):
+        json = {'it_works': True}
+        return JsonResponse(json)
