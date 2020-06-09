@@ -4,13 +4,18 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {},
-    };
-  }
+const page_header = "Django + React + TypeScript";
+
+interface Props {}
+
+interface State {
+  data: object;
+}
+
+class App extends React.Component<Props, State> {
+  state: State = {
+    data: {},
+  };
 
   componentDidMount() {
     axios.get("api/testdata/").then((res) => {
@@ -22,25 +27,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id={"app-wrap"}>
-        <h1>Django + React</h1>
-        <p>
-          Data:{" "}
-          {this.state.data.hasOwnProperty("it_works")
-            ? "present"
-            : "not present"}
-        </p>
-        <br />
+      <div id="app-wrap">
+        <h1>{page_header}</h1>
         <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
-        <br />
-        <br />
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/RyanFleck/Django-React-Heroku-Test"
-        >
-          Source code
-        </a>
       </div>
     );
   }
