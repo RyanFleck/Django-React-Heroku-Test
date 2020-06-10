@@ -7,70 +7,105 @@ import Login from "./pages/login";
 import Home from "./pages/home";
 import Create from "./pages/create";
 import Vote from "./pages/vote";
-import axios from "axios";
+import Foundation from "./pages/foundation";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
-const page_header = "Electoral";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+  },
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: "auto",
 
-interface Props {}
+    backgroundColor:
+      theme.palette.type === "light"
+        ? theme.palette.grey[200]
+        : theme.palette.grey[800],
+  },
+  headerLink: {
+    textAlign: "center",
+  },
+}));
 
-interface State {
-  data: object;
-}
+const App: React.FunctionComponent = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <Container component="main" className={classes.main} maxWidth="sm">
+        <Foundation>
+          <Router>
+            <Paper>
+              <Typography variant="body1">
+                <div style={{ padding: 14 }}>
+                  <Grid container spacing={1}>
+                    <Grid className={classes.headerLink} item xs={3}>
+                      <Link to="/">Home</Link>
+                    </Grid>
+                    <Grid className={classes.headerLink} item xs={3}>
+                      <Link to="/login">Login</Link>
+                    </Grid>
+                    <Grid className={classes.headerLink} item xs={3}>
+                      <Link to="/create">Create</Link>
+                    </Grid>
+                    <Grid className={classes.headerLink} item xs={3}>
+                      <Link to="/vote">Vote</Link>
+                    </Grid>
+                  </Grid>
+                </div>
+              </Typography>
+            </Paper>
 
-class App extends React.Component<Props, State> {
-  state: State = {
-    data: {},
-  };
+            <Switch>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/create">
+                <Create />
+              </Route>
+              <Route path="/vote">
+                <Vote />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </Router>
+        </Foundation>
+      </Container>
+      <Footer />
+    </div>
+  );
+};
 
-  componentDidMount() {
-    // See if backend is up and responsive.
-    axios.get("api/testdata/").then((res) => {
-      this.setState({ data: res.data });
-    });
-  }
-
-  render() {
-    return (
-      <div id="app-wrap">
-        <h1>{page_header}</h1>
-
-        <Router>
-          <Link to="/">Home</Link>
-          {" · "}
-          <Link to="/login">Login</Link>
-          {" · "}
-          <Link to="/create">Create</Link>
-          {" · "}
-          <Link to="/vote">Vote</Link>
-
-          <Switch>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
-            <Route path="/vote">
-              <Vote />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-
-        <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
-        <Links>
+const Footer: React.FunctionComponent = () => {
+  const classes = useStyles();
+  return (
+    <footer className={classes.footer}>
+      <Container maxWidth="sm">
+        <Typography variant="body1">
           <RepoLink />
           {" · "}
           <PrivacyPolicy />
           {" · "}
           <TermsOfService />
-        </Links>
-      </div>
-    );
-  }
-}
+        </Typography>
+      </Container>
+    </footer>
+  );
+};
 
 const RepoLink: React.FunctionComponent = () => {
   return (
@@ -90,10 +125,6 @@ const PrivacyPolicy: React.FunctionComponent = () => {
 
 const TermsOfService: React.FunctionComponent = () => {
   return <a href="/terms-of-service/">Terms of Service</a>;
-};
-
-const Links: React.FunctionComponent = (props) => {
-  return <div id={"links"}>{props.children}</div>;
 };
 
 ReactDOM.render(
