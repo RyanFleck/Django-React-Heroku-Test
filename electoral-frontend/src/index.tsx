@@ -48,26 +48,33 @@ const App: React.FunctionComponent = () => {
         <Foundation>
           <Router>
             <Paper>
-              <Typography variant="body1">
-                <div style={{ padding: 14 }}>
-                  <Grid container spacing={1}>
-                    <Grid className={classes.headerLink} item xs={3}>
+              <div style={{ padding: 14 }}>
+                <Grid container spacing={1}>
+                  <Grid className={classes.headerLink} item xs={3}>
+                    <Typography variant="body1">
                       <Link to="/">Home</Link>
-                    </Grid>
-                    <Grid className={classes.headerLink} item xs={3}>
-                      <Link to="/login">Login</Link>
-                    </Grid>
-                    <Grid className={classes.headerLink} item xs={3}>
-                      <Link to="/create">Create</Link>
-                    </Grid>
-                    <Grid className={classes.headerLink} item xs={3}>
-                      <Link to="/vote">Vote</Link>
-                    </Grid>
+                    </Typography>
                   </Grid>
-                </div>
-              </Typography>
+                  <Grid className={classes.headerLink} item xs={3}>
+                    <Typography variant="body1">
+                      <Link to="/login">Login</Link>
+                    </Typography>
+                  </Grid>
+                  <Grid className={classes.headerLink} item xs={3}>
+                    <Typography variant="body1">
+                      <Link to="/create">Create</Link>
+                    </Typography>
+                  </Grid>
+                  <Grid className={classes.headerLink} item xs={3}>
+                    <Typography variant="body1">
+                      <Link to="/vote">Vote</Link>
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </div>
             </Paper>
 
+            <br />
             <Switch>
               <Route path="/login">
                 <Login />
@@ -95,13 +102,11 @@ const Footer: React.FunctionComponent = () => {
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
-        <Typography variant="body1">
-          <RepoLink />
-          {" · "}
-          <PrivacyPolicy />
-          {" · "}
-          <TermsOfService />
-        </Typography>
+        <RepoLink />
+        {" · "}
+        <PrivacyPolicy />
+        {" · "}
+        <TermsOfService />
       </Container>
     </footer>
   );

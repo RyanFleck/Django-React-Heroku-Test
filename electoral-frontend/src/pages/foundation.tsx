@@ -1,16 +1,11 @@
 import React from "react";
 import axios from "axios";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import { Box } from "@material-ui/core";
 import axiosRetry from "axios-retry";
+import ServiceUp from "../components/serviceUp";
 
 axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay });
-
-const useStyles = makeStyles((theme) => ({}));
 
 interface Props {
   children: React.ReactNode;
@@ -46,6 +41,12 @@ export default class Foundation extends React.Component<Props, State> {
           </Typography>
         </div>
         <div>{this.props.children}</div>
+        <br />
+        <Typography variant="h5" component="h2">
+          Debug Output
+        </Typography>
+        <br />
+        <ServiceUp />
         <Box fontFamily="Monospace">
           <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
         </Box>
