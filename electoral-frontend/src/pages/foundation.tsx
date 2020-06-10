@@ -6,6 +6,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { Box } from "@material-ui/core";
+import axiosRetry from "axios-retry";
+
+axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay });
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -24,9 +27,14 @@ export default class Foundation extends React.Component<Props, State> {
 
   componentDidMount() {
     // See if backend is up and responsive.
-    axios.get("/api/testdata/").then((res) => {
-      this.setState({ data: res.data });
-    });
+    axios
+      .get("/api/testdata/")
+      .then((res) => {
+        this.setState({ data: res.data });
+      })
+      .catch((error) => {
+        this.setState({ data: { error: "Could not contact backend" } });
+      });
   }
 
   render() {

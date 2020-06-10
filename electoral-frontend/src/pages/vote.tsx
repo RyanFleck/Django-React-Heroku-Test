@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Spinner from "../components/spinner";
+import axiosRetry from "axios-retry";
+
+axiosRetry(axios, { retryDelay: axiosRetry.exponentialDelay });
 
 interface Props {}
 
@@ -19,9 +22,14 @@ export default class Vote extends React.Component<Props, State> {
     const headers = { "X-CSRFTOKEN": csrf_token };
     axios
       .post("api/authenticate/", { data: "Hello" }, { headers: headers })
-      .then((res) => {
-        this.setState({ backendUp: res.data.backend_up });
-      });
+      .then(
+        (res) => {
+          this.setState({ backendUp: true });
+        },
+        (error) => {
+          this.setState({ backendUp: false });
+        }
+      );
   }
 
   render() {
